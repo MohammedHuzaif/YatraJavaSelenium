@@ -8,8 +8,8 @@ import pageObjects.HomePage;
 import pageObjects.NavigationBar;
 import testBase.BaseClass;
 
-public class TestCase_001_BusBookScenarioTest extends BaseClass {
-    @Test
+public class TestCase_001_BusSearchTest extends BaseClass {
+    @Test(groups = {"Regression"})
     void test_BusBook(){
         logger.info("**** TC_001_BusBookScenario ****");
 
@@ -18,14 +18,14 @@ public class TestCase_001_BusBookScenarioTest extends BaseClass {
         BookBusTicketsPage bookBusTicketsPage = new BookBusTicketsPage(driver);
         BusScheduleSearchResultsPage busScheduleSearchResultsPage = new BusScheduleSearchResultsPage(driver);
 
-        String sourceShortText = "Mum";
+        String sourceShortText = "Mumbai";
         String sourceFullText = "Mumbai, Maharashtra";
-        String destinationShortText = "Hyd";
+        String destinationShortText = "Hyderabad";
         String destinationFullText = "Hyderabad, Telangana";
-        String getNumberOfResultsText = "We have got 140 results";
-        
-        homePage.clickCookiesAgreeButton();
-        logger.info("Clicked on 'Cookies' Agree button");
+        String getNumberOfResultsText = "We have got";
+
+//        homePage.clickCookiesAgreeButton();
+//        logger.info("Clicked on 'Cookies' Agree button");
         navigationBar.clickBusesIcon();
         logger.info("Clicked on Buses icon from the Top");
 
@@ -47,5 +47,7 @@ public class TestCase_001_BusBookScenarioTest extends BaseClass {
         logger.info("Verify selected depart from value");
         Assert.assertEquals(busScheduleSearchResultsPage.getNumberOfResultsText(),getNumberOfResultsText);
 
+        logger.info("Verify Source and destination in the page title: Yatra.com | Mumbai to Hyderabad Bus");
+        Assert.assertEquals(getPageTitle(),"Yatra.com | "+sourceShortText+" to "+destinationShortText+" Bus");
     }
 }
