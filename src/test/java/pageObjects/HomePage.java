@@ -14,6 +14,13 @@ public class HomePage extends BasePage {
     @FindBy(css = ".btngdpr")
     WebElement cookiesAgreeButton;
 
+    @FindBy(css="a .ico-newHeaderLogo")
+    WebElement headerLogo;
+
+    public void clickHeaderLogo(){
+        headerLogo.click();
+    }
+
     public void clickCookiesAgreeButton(){
         cookiesAgreeButton.click();
     }

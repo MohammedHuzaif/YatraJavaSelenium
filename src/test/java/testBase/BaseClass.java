@@ -28,7 +28,7 @@ public class BaseClass {
     public Logger logger;
     public ResourceBundle resourceBundle;
 
-    @BeforeClass
+    @BeforeClass(groups = {"Regression", "Sanity", "Smoketest"})
     @Parameters("browser")
     public void setup(String br){
         resourceBundle = ResourceBundle.getBundle("config");
@@ -50,7 +50,7 @@ public class BaseClass {
         driver.get(resourceBundle.getString("appURL"));
     }
 
-    @AfterClass
+    @AfterClass(groups = {"Regression", "Sanity", "Smoketest"})
     public void tearDown(){
         driver.quit();
     }
@@ -67,7 +67,6 @@ public class BaseClass {
         return randomString()+randomNumber();
     }
 
-
     public String captureScreen(String tName) throws IOException {
 
         String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -82,5 +81,21 @@ public class BaseClass {
             e.getMessage();
         }
         return destination;
+    }
+
+    public String getPageTitle(){
+        return driver.getTitle();
+    }
+
+    public String getCurrentURL(){
+        return driver.getCurrentUrl();
+    }
+
+    public void acceptAlertPopUp(){
+        driver.switchTo().alert().accept();
+    }
+
+    public void dismissAlertPopUp(){
+        driver.switchTo().alert().dismiss();
     }
 }
