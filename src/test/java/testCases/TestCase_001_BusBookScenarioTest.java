@@ -8,7 +8,7 @@ import pageObjects.HomePage;
 import pageObjects.NavigationBar;
 import testBase.BaseClass;
 
-public class Test_001_BusBookScenario extends BaseClass {
+public class TestCase_001_BusBookScenarioTest extends BaseClass {
     @Test
     void test_BusBook(){
         logger.info("**** TC_001_BusBookScenario ****");
@@ -23,8 +23,7 @@ public class Test_001_BusBookScenario extends BaseClass {
         String destinationShortText = "Hyd";
         String destinationFullText = "Hyderabad, Telangana";
         String getNumberOfResultsText = "We have got 140 results";
-
-
+        
         homePage.clickCookiesAgreeButton();
         logger.info("Clicked on 'Cookies' Agree button");
         navigationBar.clickBusesIcon();

@@ -7,7 +7,7 @@
     <test thread-count="5" name="YatraTestChrome">
         <parameter name="browser" value="chrome"/> <!--chrome , firefox , edge -->
         <classes>
-            <class name="testCases.Test_001_BusBookScenario"/>
+            <class name="testCases.TestCase_001_BusBookScenarioTest"/>
         </classes>
     </test>
 
